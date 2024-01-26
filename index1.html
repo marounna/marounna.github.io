@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        #app {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+    <title>Money Calculator</title>
+</head>
+<body>
+    <div id="app">
+        <h2>Money Calculator</h2>
+        <label for="quantity200">Quantity of 200:</label>
+        <input type="number" id="quantity200" min="0" value="0">
+
+        <label for="quantity100">Quantity of 100:</label>
+        <input type="number" id="quantity100" min="0" value="0">
+
+        <label for="quantity50">Quantity of 50:</label>
+        <input type="number" id="quantity50" min="0" value="0">
+
+        <label for="quantity20">Quantity of 20:</label>
+        <input type="number" id="quantity20" min="0" value="0">
+
+        <label for="quantity10">Quantity of 10:</label>
+        <input type="number" id="quantity10" min="0" value="0">
+
+        <label for="quantity5">Quantity of 5:</label>
+        <input type="number" id="quantity5" min="0" value="0">
+
+        <label for="quantity2">Quantity of 2:</label>
+        <input type="number" id="quantity2" min="0" value="0">
+
+        <label for="quantity1">Quantity of 1:</label>
+        <input type="number" id="quantity1" min="0" value="0">
+
+        <label for="quantity05">Quantity of 0.5:</label>
+        <input type="number" id="quantity05" step="0.5" min="0" value="0">
+
+        <label for="quantity01">Quantity of 0.1:</label>
+        <input type="number" id="quantity01" step="0.1" min="0" value="0">
+
+        <button onclick="calculateTotal()">Calculate Total</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            const quantity200 = parseFloat(document.getElementById('quantity200').value);
+            const quantity100 = parseFloat(document.getElementById('quantity100').value);
+            const quantity50 = parseFloat(document.getElementById('quantity50').value);
+            const quantity20 = parseFloat(document.getElementById('quantity20').value);
+            const quantity10 = parseFloat(document.getElementById('quantity10').value);
+            const quantity5 = parseFloat(document.getElementById('quantity5').value);
+            const quantity2 = parseFloat(document.getElementById('quantity2').value);
+            const quantity1 = parseFloat(document.getElementById('quantity1').value);
+            const quantity05 = parseFloat(document.getElementById('quantity05').value);
+            const quantity01 = parseFloat(document.getElementById('quantity01').value);
+
+            const total = (200 * quantity200) + (100 * quantity100) + (50 * quantity50) +
+                          (20 * quantity20) + (10 * quantity10) + (5 * quantity5) +
+                          (2 * quantity2) + (1 * quantity1) + (0.5 * quantity05) +
+                          (0.1 * quantity01);
+
+            document.getElementById('result').innerHTML = `Total: ${total.toFixed(2)} USD`;
+        }
+    </script>
+</body>
+</html>
