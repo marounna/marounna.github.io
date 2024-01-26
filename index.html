@@ -55,6 +55,7 @@
             height: auto;
             margin-bottom: 10px;
             cursor: pointer;
+            touch-action: manipulation; /* Prevent default touch behavior */
         }
     </style>
     <title>Money Calculator</title>
@@ -136,6 +137,30 @@
             const input = document.getElementById(inputId);
             input.value = parseInt(input.value) + 1;
         }
+
+ function increaseQuantity(inputId) {
+        const input = document.getElementById(inputId);
+        input.value = parseInt(input.value) + 1;
+    }
+
+    function attachImageClickEvent(inputId) {
+        const img = document.getElementById(inputId + '-img');
+        img.addEventListener('touchstart', function () {
+            increaseQuantity(inputId);
+        });
+    }
+
+    attachImageClickEvent('quantity200');
+    attachImageClickEvent('quantity100');
+    attachImageClickEvent('quantity50');
+    attachImageClickEvent('quantity20');
+    attachImageClickEvent('quantity10');
+    attachImageClickEvent('quantity5');
+    attachImageClickEvent('quantity2');
+    attachImageClickEvent('quantity1');
+    attachImageClickEvent('quantity05');
+    attachImageClickEvent('quantity01');
+
     </script>
 </body>
 </html>
