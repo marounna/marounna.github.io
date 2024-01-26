@@ -7,10 +7,11 @@
         body {
             font-family: 'Arial', sans-serif;
             text-align: center;
-            margin: 50px;
+            margin: 20px;
         }
 
         #app {
+            width: 100%;
             max-width: 400px;
             margin: auto;
             padding: 20px;
@@ -25,7 +26,7 @@
         }
 
         input {
-            width: 100%;
+            width: 60%;
             padding: 8px;
             margin-bottom: 20px;
             box-sizing: border-box;
@@ -53,6 +54,7 @@
             max-width: 100%;
             height: auto;
             margin-bottom: 10px;
+            cursor: pointer;
         }
     </style>
     <title>Money Calculator</title>
@@ -60,7 +62,7 @@
 <body>
     <div id="app">
         <h2>Money Calculator</h2>
-        
+        <h4>Click the money image to add one of type the qyantity! </h4>
         <label for="quantity200">Quantity of 200:</label>
         <img src="https://images.globes.co.il/images/NewGlobes/big_image_800/2015/200_final_1-800.jpg" alt="200 NIS" onclick="increaseQuantity('quantity200')" />
         <input type="number" id="quantity200" min="0" value="0" step="1">
