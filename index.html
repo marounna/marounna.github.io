@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -15,7 +16,7 @@
             width: 100%;
             max-width: 400px;
             margin: auto;
-            padding: 20px;
+            padding: 5px;
             border: 1px solid #ccc;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -24,7 +25,7 @@
             width: 90%; /* Set to 5% of the screen width */
             box-sizing: border-box;
             display: inline-block;
-            margin: 5px; /* Add some margin for spacing */
+            margin: 1px; /* Add some margin for spacing */
         }
 
         label {
@@ -34,7 +35,7 @@
 
         input {
             width: 70%;
-            padding: 8px;
+            padding: 1px;
             margin-bottom: 20px;
             box-sizing: border-box;
         }
@@ -68,8 +69,9 @@
     <title>Money Calculator</title>
 </head>
 <body>
+    <h2>Money Calculator</h2>
     <div id="app">
-        <h2>Money Calculator</h2>
+        
         <h4>Click the money image to add one OR type the quantity! </h4>
         <table>
             <tr>
@@ -115,7 +117,6 @@
         <button onclick="calculateTotal()">Calculate Total</button>
         <div id="result"></div>
 
-        <!-- Images for each denomination -->
         
        
     </div>
@@ -139,6 +140,7 @@
                           (0.1 * quantity01);
 
             document.getElementById('result').innerHTML = `Total: ${total.toFixed(2)} NIS`;
+
         }
         function increaseQuantity(inputId) {
             const input = document.getElementById(inputId);
