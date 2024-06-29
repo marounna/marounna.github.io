@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Tech lab 1 - Calculator</title>
+    <!--
+        The tailwind CDN is designed for development purposes only, and is not the best choice for production.
+        Read more here: https://tailwindcss.com/docs/installation 
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- example for dark theme styling when using tailwind cdn -->
+    <style>
+        /*examples for dark/light themes*/
+        .dark .dark\:text-white {
+            color: #fff;
+        }
+        .dark .dark\:bg-gray-800 {
+            background-color: #1f2937;
+        }
+        .light .light\:text-black {
+            color: #000;
+        }
+
+        /*add your custom css rules here*/
+
+        #app{
+        
+            width: 300px;
+            height:210px;
+            margin:100px auto;
+            background-color: black;
+            padding-left: 3%;
+        }
+        .num-btn{
+            margin:1%;
+            float: left;
+            width: 20%;
+            height: 20%;
+            text-align: center;
+            border-radius: 100%;
+            background-color: rgb(126, 126, 126);
+            
+        }
+        .num-btn:hover{
+
+            background-color: rgb(167, 167, 167);
+            
+        }
+        .top-op{
+            background-color: rgb(199, 199, 199);
+            -webkit-text-fill-color: #000;
+        }
+        .top-op:hover{
+            background-color: rgb(235, 234, 234);
+        }
+        .side-op{
+            background-color: rgb(243, 143, 81);
+        }
+        .side-op:hover{
+            background-color: rgb(245, 168, 120);
+        }
+        .display{
+            font-size: xx-large;
+           padding-top: 1px;
+            margin-left: 80%;
+            margin-bottom: 1%;
+            -webkit-text-fill-color: azure;
+        }
+
+    
+    </style>
+</head>
+
+<body class="dark:text-white light:text-black">
+
+    <!-- your app code goes here -->
+   
+<div id="app">
+    <div class="display">0</div>
+    <div>
+        <div class="num-btn top-op">C</div>
+        <div class="num-btn top-op">+/-</div>
+        <div class="num-btn top-op">%</div>
+        <div class="num-btn side-op">/</div>
+    </div>
+    <div>
+        <div class="num-btn">1</div>
+        <div class="num-btn">2</div>
+        <div class="num-btn">3</div>
+        <div class="num-btn side-op">X</div>
+    </div>
+    <div>
+        <div class="num-btn">4</div>
+        <div class="num-btn">5</div>
+        <div class="num-btn">6</div>
+        <div class="num-btn side-op">-</div>
+    </div>
+    <div>
+        <div class="num-btn">7</div>
+        <div class="num-btn">8</div>
+        <div class="num-btn">9</div>
+        <div class="num-btn side-op" >+</div>
+    </div>
+    <div>
+        <div class="num-btn">0</div>
+        <div class="num-btn">^</div>
+        <div class="num-btn">.</div>
+        <div class="num-btn side-op" >=</div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- special scripts for integration in App Gallery - must be placed at the bottom of the HTML after your code -->
+    <script>
+        // custom config for the MTW app 
+        const mtwAppConfig = {
+            border: true // app border in the MTW page                    
+        }
+
+        ///////////////////////////////////////////////////////
+        // implement this functions in order to use private API        
+        const sendPrivateApiRequest = async () => {
+            // your code here:
+            // sendRequestToParent({ cat: 'getAssets' })
+        }        
+
+        const acceptPrivateApiResponse = async (data) => {
+            // process received data here:
+            // console.log(data)
+        }
+
+        // use this in order to send on document load
+        document.addEventListener('DOMContentLoaded', () => {
+            // your code here:
+            //sendRequestToParent({ method: 'getAssets' })
+        })
+
+    </script>
+    <script src="https://morethanwallet.com/appstore/index.js"></script>
+</body>
+
+</html>

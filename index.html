@@ -1,157 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="en"> 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Tech lab 1 - Calculator</title>
-    <!--
-        The tailwind CDN is designed for development purposes only, and is not the best choice for production.
-        Read more here: https://tailwindcss.com/docs/installation 
-    -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- example for dark theme styling when using tailwind cdn -->
-    <style>
-        /*examples for dark/light themes*/
-        .dark .dark\:text-white {
-            color: #fff;
-        }
-        .dark .dark\:bg-gray-800 {
-            background-color: #1f2937;
-        }
-        .light .light\:text-black {
-            color: #000;
-        }
-
-        /*add your custom css rules here*/
-
-        #app{
-        
-            width: 300px;
-            height:210px;
-            margin:100px auto;
-            background-color: black;
-            padding-left: 3%;
-        }
-        .num-btn{
-            margin:1%;
-            float: left;
-            width: 20%;
-            height: 20%;
-            text-align: center;
-            border-radius: 100%;
-            background-color: rgb(126, 126, 126);
-            
-        }
-        .num-btn:hover{
-
-            background-color: rgb(167, 167, 167);
-            
-        }
-        .top-op{
-            background-color: rgb(199, 199, 199);
-            -webkit-text-fill-color: #000;
-        }
-        .top-op:hover{
-            background-color: rgb(235, 234, 234);
-        }
-        .side-op{
-            background-color: rgb(243, 143, 81);
-        }
-        .side-op:hover{
-            background-color: rgb(245, 168, 120);
-        }
-        .display{
-            font-size: xx-large;
-           padding-top: 1px;
-            margin-left: 80%;
-            margin-bottom: 1%;
-            -webkit-text-fill-color: azure;
-        }
-
-    
-    </style>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind example</title>
+    <link rel="stylesheet" href="/style.css" />        
 </head>
 
-<body class="dark:text-white light:text-black">
-
-    <!-- your app code goes here -->
-   
-<div id="app">
-    <div class="display">0</div>
-    <div>
-        <div class="num-btn top-op">C</div>
-        <div class="num-btn top-op">+/-</div>
-        <div class="num-btn top-op">%</div>
-        <div class="num-btn side-op">/</div>
+<body class="dark:bg-gray-700 dark:text-white p-4">
+    <div class="max-w-[800px] w-full mx-auto relative">
+        <div class="bg-blue-700 dark:bg-blue-500 text-white p-2 flex justify-between">
+            <button class="block sm:hidden" onclick="toggleMenu()">
+                <svg
+                    id="menuIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="1.5em"
+                    viewBox="0 0 448 512"
+                >
+                    <path
+                        fill="#ffffff"
+                        d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+                    />
+                </svg>
+                <svg
+                    id="closeIcon"
+                    class="hidden"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="1.5em"
+                    viewBox="0 0 384 512"
+                >
+                    <path
+                        fill="#ffffff"
+                        d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                    />
+                </svg>
+            </button>
+            <div
+                class="absolute top-[56px] left-0 bg-blue-300 p-2 hidden w-full"
+                id="ddMenu"
+            >
+            </div>
+            <div class="justify-start gap-4 hidden sm:flex" id="topMenu">
+            </div>
+            <div id="themeToggle">
+            </div>
+        </div>
+        <div class="py-2">
+            <h1 class="text-2xl border-b-[8px] border-blue-300 pb-2" id="viewTitle">
+                Calculator
+            </h1>
+            <div id="app" class="w-full bg-blue-100 p-1"></div>                
+        </div>
     </div>
-    <div>
-        <div class="num-btn">1</div>
-        <div class="num-btn">2</div>
-        <div class="num-btn">3</div>
-        <div class="num-btn side-op">X</div>
-    </div>
-    <div>
-        <div class="num-btn">4</div>
-        <div class="num-btn">5</div>
-        <div class="num-btn">6</div>
-        <div class="num-btn side-op">-</div>
-    </div>
-    <div>
-        <div class="num-btn">7</div>
-        <div class="num-btn">8</div>
-        <div class="num-btn">9</div>
-        <div class="num-btn side-op" >+</div>
-    </div>
-    <div>
-        <div class="num-btn">0</div>
-        <div class="num-btn">^</div>
-        <div class="num-btn">.</div>
-        <div class="num-btn side-op" >=</div>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- special scripts for integration in App Gallery - must be placed at the bottom of the HTML after your code -->
-    <script>
-        // custom config for the MTW app 
-        const mtwAppConfig = {
-            border: true // app border in the MTW page                    
-        }
-
-        ///////////////////////////////////////////////////////
-        // implement this functions in order to use private API        
-        const sendPrivateApiRequest = async () => {
-            // your code here:
-            // sendRequestToParent({ cat: 'getAssets' })
-        }        
-
-        const acceptPrivateApiResponse = async (data) => {
-            // process received data here:
-            // console.log(data)
-        }
-
-        // use this in order to send on document load
-        document.addEventListener('DOMContentLoaded', () => {
-            // your code here:
-            //sendRequestToParent({ method: 'getAssets' })
-        })
-
-    </script>
+    <script src="./app.js"></script>
     <script src="https://morethanwallet.com/appstore/index.js"></script>
 </body>
-
 </html>
